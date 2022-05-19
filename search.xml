@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>hexo+butterfly 搭建避坑</title>
+      <link href="/2022/05/19/hexoStart/"/>
+      <url>/2022/05/19/hexoStart/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题:"></a>问题:</h1><p>hexo d 上传GitHub后css,js都不生效<br>本地serve 可以加载,hexo d上传后只有html.在浏览器中f12发现css和js的资源都无法加载.  </p><h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法:"></a>解决办法:</h1><p>在根配置文件<code>_config.yml</code>中将url修改如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: https://yourWebSite/yourroot</span><br><span class="line">root:/</span><br></pre></td></tr></table></figure><p>url是你的网页访问地址,如果使用GitHubpages,复制仓库地址后加上你的根地址即<code>root</code></p><p>eg.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: https://github.com/******/******.github.io.git/</span><br><span class="line">root:/</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
