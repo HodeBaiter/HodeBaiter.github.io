@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>mybatisIdType</title>
+      <link href="/2022/07/12/mybatisIdType/"/>
+      <url>/2022/07/12/mybatisIdType/</url>
+      
+        <content type="html"><![CDATA[<h1 id="mybatisplus-主键自动递增失效"><a href="#mybatisplus-主键自动递增失效" class="headerlink" title="mybatisplus 主键自动递增失效"></a>mybatisplus 主键自动递增失效</h1><blockquote><p>mybatisplus 3.3版本后默认采用UUID+雪花算法自动生成主键id.</p></blockquote><p>注解设置<code>@TableId(value = &quot;id&quot;,type = IdType.*AUTO*)</code> 后无效依然为13位生成id</p><p>找到的解决方法是删除表格重新建立,不知道为什么.</p><p>可以用springboot初始化完成,这样就不用每次都去删表格了</p><h2 id="resource下创建sql文件夹存放初始化的sql文件"><a href="#resource下创建sql文件夹存放初始化的sql文件" class="headerlink" title="resource下创建sql文件夹存放初始化的sql文件"></a>resource下创建sql文件夹存放初始化的sql文件</h2><p><strong>eg.</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- sqlschema</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> `form`;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> form</span><br><span class="line">(</span><br><span class="line">    name         <span class="type">varchar</span>(<span class="number">30</span>)  <span class="keyword">null</span>,</span><br><span class="line">    id           <span class="type">bigint</span>(<span class="number">50</span>) auto_increment</span><br><span class="line">        <span class="keyword">primary</span> key,</span><br><span class="line">    title        <span class="type">varchar</span>(<span class="number">30</span>)  <span class="keyword">null</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- sqldata</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span>  jsjyz.form (name, id, title)</span><br><span class="line"><span class="keyword">values</span>  (<span class="string">&#x27;dsds&#x27;</span>, <span class="number">1</span>, <span class="keyword">null</span>),</span><br><span class="line">        (<span class="string">&#x27;dssds&#x27;</span>, <span class="number">2</span>, <span class="keyword">null</span>),</span><br><span class="line">        (<span class="string">&#x27;dssds&#x27;</span>, <span class="number">3</span>, <span class="keyword">null</span>);</span><br></pre></td></tr></table></figure><h2 id="springboot中配置"><a href="#springboot中配置" class="headerlink" title="springboot中配置"></a>springboot中配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">sql:</span></span><br><span class="line">  <span class="attr">init:</span></span><br><span class="line">    <span class="attr">schema-locations:</span> <span class="string">classpath*:sql/form.sql</span></span><br><span class="line">    <span class="attr">data-locations:</span> <span class="string">classpath*:sql/data/formdata.sql</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> mybatisplus </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> springboot </tag>
+            
+            <tag> mybatisplus </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于vue的低级错误收集</title>
       <link href="/2022/05/29/lowmistake/"/>
       <url>/2022/05/29/lowmistake/</url>
